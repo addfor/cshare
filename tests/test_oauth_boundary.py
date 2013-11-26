@@ -4,7 +4,6 @@ try:
 except:
     import pickle
 
-import atom
 import gdata.calendar.service
 from gdata.auth import OAuthSignatureMethod
 CONSUMER_KEY = "460112401320.apps.googleusercontent.com"
