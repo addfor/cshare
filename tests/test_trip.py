@@ -4,12 +4,12 @@ SEATS = 3
 USER_NAME = "User_01"
 START_POINT = "Turin"
 END_POINT = "Turku"
-from cshare.model import (Car, Trip, Profile)
+from cshare.model import (Car, Trip, User)
 
 class TestTrip(unittest.TestCase):
     def setUp(self):
         self.car = Car(SEATS)
-        self.user = Profile(USER_NAME, self.car)
+        self.user = User(USER_NAME, self.car)
 
     def test_trip(self):
         trip = Trip(START_POINT, END_POINT, self.user)
