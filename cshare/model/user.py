@@ -1,4 +1,4 @@
-class Profile(object):
+class User(object):
     def __init__(self, user, car=None):
         self._user = user
         self._car = car
