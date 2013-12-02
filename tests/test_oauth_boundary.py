@@ -45,9 +45,3 @@ class TestAuthSecret(unittest.TestCase):
         cal_list = self.client.GetAllCalendarsFeed()
         calendars = [cal.title.text for cal in cal_list.entry]
         self.assertTrue("CSHARE" in calendars)
-
-
-
-
-
-
