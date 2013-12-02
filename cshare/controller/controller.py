@@ -1,9 +1,10 @@
-from cshare.model import (User, Car, Trip)
+from cshare.model import (User, Car)
 
 
 class Controller(object):
-    def __init__(self, backend):
-        self._backend = backend
+    def __init__(self, backend_adapter):
+        self._backend = backend_adapter
+        self._user = None
 
     def create_profile(self, user, seats):
         car = Car(seats)
@@ -15,6 +16,3 @@ class Controller(object):
 
     def login(self):
         return self._backend.login()
-
-
-
