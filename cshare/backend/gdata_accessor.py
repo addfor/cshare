@@ -29,4 +29,3 @@ class GData(object):
 
     def login(self, access_token):
         self._client.token_store.add_token(access_token)
-        print self._client.GetAllCalendarsFeed()
