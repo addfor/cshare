@@ -8,6 +8,7 @@ class TestCar(unittest.TestCase):
         self.assertRaises(Exception, Car, 0)
 
     def test_car_creation(self):
+        "Testing average case for car objects"
         for i in xrange(1,10):
             car = Car(i)
             self.assertEqual(i, car.get_seats())
