@@ -17,17 +17,4 @@ class Controller(object):
         return self._backend.login()
 
 
-if __name__ == "__main__":
-    from google_facade import GDataFacade
-    from cshare.backend import GData
-    backend = GData()
-    api = GDataFacade(backend)
-    c = Controller(api)
-    #print c.create_profile("Dani", 3)
-    #raw_input()
-    #c.get_auth()
-    c.login()
-
-
-
 
