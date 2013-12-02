@@ -8,9 +8,9 @@ except:
 SETTINGS_PATH = os.path.abspath(os.path.expanduser("~/.cshare"))
 
 class GDataFacade(object):
-    def __init__(self, wrapped):
-        self._api = wrapped
-        self._autenticator = None
+    def __init__(self, accessor):
+        self._api = accessor
+        self._authenticator = None
         self._auth_url = None
         self._auth_token = None
         self._token_path = os.path.join(SETTINGS_PATH, "token.dat")
@@ -23,12 +23,12 @@ class GDataFacade(object):
             os.mkdir(SETTINGS_PATH)
 
     def get_access_url(self):
-        self._autenticator = self._api.create_auth()
-        self._auth_url = self._autenticator.next()
+        self._authenticator = self._api.create_auth()
+        self._auth_url = self._authenticator.next()
         return self._auth_url
 
     def get_auth(self):
-        self._auth_token = self._autenticator.next()
+        self._auth_token = self._authenticator.next()
         self.store_credential()
         return self._auth_token
 
