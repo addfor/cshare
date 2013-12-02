@@ -11,7 +11,7 @@ class Controller(object):
         return self._backend.get_access_url()
 
     def get_auth(self):
-        return self._backend.get_auth()
+        return self._backend.get_access_credentials()
 
     def login(self):
         return self._backend.login()

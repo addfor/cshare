@@ -7,14 +7,13 @@ except:
 
 SETTINGS_PATH = os.path.abspath(os.path.expanduser("~/.cshare"))
 
-class GDataFacade(object):
+class GoogleAdapter(object):
     def __init__(self, accessor):
         self._api = accessor
         self._authenticator = None
         self._auth_url = None
         self._auth_token = None
         self._token_path = os.path.join(SETTINGS_PATH, "token.dat")
-
         self._create_user_settings()
 
     def _create_user_settings(self):
@@ -27,12 +26,12 @@ class GDataFacade(object):
         self._auth_url = self._authenticator.next()
         return self._auth_url
 
-    def get_auth(self):
+    def get_access_credentials(self):
         self._auth_token = self._authenticator.next()
-        self.store_credential()
+        self._store_credential()
         return self._auth_token
 
-    def store_credential(self):
+    def _store_credential(self):
         with open(self._token_path, "w") as token_file:
             pickle.dump(self._auth_token, token_file)
 
